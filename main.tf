@@ -1,5 +1,5 @@
 resource "tfe_oauth_client" "github" {
-  organization     = "organization_name"
+  organization     = "mmichel122"
   api_url          = "https://api.github.com"
   http_url         = "https://github.com"
   oauth_token      = var.github_token
@@ -8,12 +8,11 @@ resource "tfe_oauth_client" "github" {
 
 resource "tfe_workspace" "prd_eu-west-1" {
   name         = "mm-sky-demo-auto-1"
-  organization = "modus-demo"
+  organization = var.tfe_org_name
   auto_apply        = false
   operations        = true
   queue_all_runs    = true
   file_triggers_enabled = true
-  working_directory     = "providers/aws/eu-west-1/prd"
   vcs_repo {
     identifier         = var.identifier
     branch             = "main"
