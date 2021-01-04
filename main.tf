@@ -24,13 +24,13 @@ resource "tfe_workspace" "prd_eu-west-1" {
 resource "tfe_variable" "AWS_ACCESS_KEY_ID" {
   key          = "AWS_ACCESS_KEY_ID"
   value        = "yyyyyyyyyyyyy"
-  category     = "terraform"
+  category     = "env"
   workspace_id = tfe_workspace.prd_eu-west-1.id
 }
 
 resource "tfe_variable" "AWS_SECRET_ACCESS_KEY" {
   key          = "AWS_SECRET_ACCESS_KEY"
   value        = "xxxxxxxxxx"
-  category     = "terraform"
+  category     = "env"
   workspace_id = tfe_workspace.prd_eu-west-1.id
 }
