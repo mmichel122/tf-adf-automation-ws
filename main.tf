@@ -20,3 +20,17 @@ resource "tfe_workspace" "prd_eu-west-1" {
     oauth_token_id     = tfe_oauth_client.github.oauth_token_id
   }
 }
+resource "tfe_workspace" "prd_eu-west-2" {
+  name         = "mm-sky-demo-auto-2"
+  organization = var.tfe_org_name
+  auto_apply        = false
+  operations        = true
+  queue_all_runs    = true
+  file_triggers_enabled = true
+  vcs_repo {
+    identifier         = var.identifier
+    branch             = "master"
+    ingress_submodules = false
+    oauth_token_id     = tfe_oauth_client.github.oauth_token_id
+  }
+}
