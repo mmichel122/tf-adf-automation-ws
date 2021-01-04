@@ -15,7 +15,7 @@ resource "tfe_workspace" "prd_eu-west-1" {
   file_triggers_enabled = true
   vcs_repo {
     identifier         = var.identifier
-    branch             = "main"
+    branch             = "master"
     ingress_submodules = false
     oauth_token_id     = tfe_oauth_client.github.oauth_token_id
   }

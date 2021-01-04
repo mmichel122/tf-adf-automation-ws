@@ -7,7 +7,7 @@ variable "tfe_org_name" {
 }
 
 variable "github_token" {
-  #default = "7b7da756bbddcdb73481ea420014968814c232a4"
+  #default = "2b128c2cc02899079c0c7ae2bd1d2482979f8fef"
 }
 
 variable "identifier" {
