@@ -25,6 +25,7 @@ resource "tfe_variable" "AWS_ACCESS_KEY_ID" {
   key          = "AWS_ACCESS_KEY_ID"
   value        = var.AWS_ACCESS_KEY_ID
   category     = "env"
+  sensitive    = true
   workspace_id = tfe_workspace.prd_eu-west-1.id
 }
 
@@ -32,5 +33,6 @@ resource "tfe_variable" "AWS_SECRET_ACCESS_KEY" {
   key          = "AWS_SECRET_ACCESS_KEY"
   value        = var.AWS_SECRET_ACCESS_KEY
   category     = "env"
+  sensitive    = true
   workspace_id = tfe_workspace.prd_eu-west-1.id
 }
