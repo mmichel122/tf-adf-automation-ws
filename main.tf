@@ -23,14 +23,14 @@ resource "tfe_workspace" "prd_eu-west-1" {
 
 resource "tfe_variable" "AWS_ACCESS_KEY_ID" {
   key          = "AWS_ACCESS_KEY_ID"
-  value        = "yyyyyyyyyyyyy"
+  value        = var.AWS_ACCESS_KEY_ID
   category     = "env"
   workspace_id = tfe_workspace.prd_eu-west-1.id
 }
 
 resource "tfe_variable" "AWS_SECRET_ACCESS_KEY" {
   key          = "AWS_SECRET_ACCESS_KEY"
-  value        = "xxxxxxxxxx"
+  value        = var.AWS_SECRET_ACCESS_KEY
   category     = "env"
   workspace_id = tfe_workspace.prd_eu-west-1.id
 }
