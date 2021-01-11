@@ -4,7 +4,7 @@ terraform {
 
 resource "github_repository" "tfe_git_repo" {
   name           = var.tfe_workspace_name
-  visibility     = public
+  visibility     = "public"
   auto_init      = true
   template {
     owner = "mmichel122"
