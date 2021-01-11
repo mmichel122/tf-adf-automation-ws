@@ -6,7 +6,6 @@ resource "github_repository" "tfe_git_repo" {
   name           = var.tfe_workspace_name
   private        = false
   auto_init      = true
-  default_branch = "master"
   template {
     owner = "mmichel122"
     repository = var.identifier
