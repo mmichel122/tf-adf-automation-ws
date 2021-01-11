@@ -4,11 +4,11 @@ terraform {
 
 resource "github_repository" "tfe_git_repo" {
   name           = var.tfe_workspace_name
-  private        = false
+  visibility     = public
   auto_init      = true
   template {
     owner = "mmichel122"
-    repository = var.identifier
+    repository = "tf-aws-simple-vpc"
   }
 }
 
