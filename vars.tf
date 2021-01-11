@@ -1,6 +1,9 @@
 variable "tfe_token" {
 }
 
+variable "git_owner" {
+}
+
 variable "tfe_org_name" {
 }
 

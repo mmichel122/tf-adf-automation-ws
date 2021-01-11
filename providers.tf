@@ -1,6 +1,6 @@
 provider "github" {
   token        = var.github_token
-  organization = "modusmtich"
+  owner        = var.git_owner
 }
 
 provider "tfe" {
