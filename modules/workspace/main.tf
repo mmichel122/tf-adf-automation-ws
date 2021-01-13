@@ -50,7 +50,14 @@ resource "tfe_variable" "workspace_name" {
 
 resource "tfe_variable" "workspace_team" {
   key          = "workspace_team"
-  value        = var.team_workspace_name
+  value        = var.tfe_workspace_team
+  category     = "terraform"
+  workspace_id = tfe_workspace.workspace.id
+}
+
+resource "tfe_variable" "region" {
+  key          = "region"
+  value        = var.region
   category     = "terraform"
   workspace_id = tfe_workspace.workspace.id
 }
