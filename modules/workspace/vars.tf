@@ -4,6 +4,9 @@ variable "tfe_token" {
 variable "tfe_workspace_name" {
 }
 
+variable "team_workspace_name" {
+}
+
 variable "tfe_org_name" {
 }
 
