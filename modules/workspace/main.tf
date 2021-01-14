@@ -8,7 +8,6 @@ resource "tfe_oauth_client" "github" {
   http_url          = "https://github.com"
   oauth_token       = var.github_token
   service_provider  = "github"
-  depends_on        = [tfe_variable.region]
 }
 
 resource "tfe_workspace" "workspace" {
@@ -24,6 +23,7 @@ resource "tfe_workspace" "workspace" {
     ingress_submodules  = false
     oauth_token_id      = tfe_oauth_client.github.oauth_token_id
   }
+  depends_on = [tfe_variable.workspace_team, tfe_variable.workspace_name, tfe_variable.region]
 }
 
 resource "tfe_variable" "AWS_ACCESS_KEY_ID" {
