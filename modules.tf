@@ -8,7 +8,7 @@ module "mm-tf-demo-sky-1" {
   identifier            = var.identifier
   AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
-  region                = "eu-west-2"
+  region                = "eu-west-1"
 }
 
 module "mm-tf-demo-sky-2" {
@@ -21,5 +21,5 @@ module "mm-tf-demo-sky-2" {
   identifier            = var.identifier
   AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
-  region                = "eu-west-2"
+  region                = "eu-west-1"
 }
