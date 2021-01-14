@@ -8,6 +8,7 @@ resource "tfe_oauth_client" "github" {
   http_url          = "https://github.com"
   oauth_token       = var.github_token
   service_provider  = "github"
+  depends_on        = [tfe_variable.region, tfe_variable.workspace_name, tfe_variable.workspace_team]
 }
 
 resource "tfe_workspace" "workspace" {
