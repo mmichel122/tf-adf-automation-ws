@@ -2,6 +2,13 @@ terraform {
   required_version  = ">=0.12"
 }
 
+resource "null_resource" "previous" {}
+
+resource "time_sleep" "wait_30_seconds" {
+  depends_on = [null_resource.previous]
+  create_duration = "10s"
+}
+
 resource "tfe_oauth_client" "github" {
   organization      = var.tfe_org_name
   api_url           = "https://api.github.com"
@@ -22,8 +29,8 @@ resource "tfe_workspace" "workspace" {
     branch              = "main"
     ingress_submodules  = false
     oauth_token_id      = tfe_oauth_client.github.oauth_token_id
+    depends_on          = [time_sleep.wait_30_seconds]
   }
-  depends_on = [tfe_variable.workspace_team, tfe_variable.workspace_name, tfe_variable.region]
 }
 
 resource "tfe_variable" "AWS_ACCESS_KEY_ID" {
