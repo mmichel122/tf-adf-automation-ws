@@ -15,7 +15,7 @@ resource "tfe_workspace" "workspace" {
   organization          = var.tfe_org_name
   auto_apply            = true
   operations            = true
-  queue_all_runs        = true
+  queue_all_runs        = var.queue_all_runs
   file_triggers_enabled = true
   vcs_repo {
     identifier          = var.identifier
@@ -58,6 +58,13 @@ resource "tfe_variable" "workspace_team" {
 resource "tfe_variable" "region" {
   key          = "region"
   value        = var.region
+  category     = "terraform"
+  workspace_id = tfe_workspace.workspace.id
+}
+
+resource "tfe_variable" "queue_all_runs" {
+  key          = "queue_all_runs"
+  value        = var.queue_all_runs
   category     = "terraform"
   workspace_id = tfe_workspace.workspace.id
 }
