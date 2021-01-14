@@ -17,6 +17,12 @@ resource "tfe_workspace" "workspace" {
   operations            = true
   queue_all_runs        = true
   file_triggers_enabled = true
+  vcs_repo {
+    identifier          = var.identifier
+    branch              = "main"
+    ingress_submodules  = false
+    oauth_token_id      = tfe_oauth_client.github.oauth_token_id
+  }
 }
 
 resource "tfe_variable" "AWS_ACCESS_KEY_ID" {
@@ -54,15 +60,4 @@ resource "tfe_variable" "region" {
   value        = var.region
   category     = "terraform"
   workspace_id = tfe_workspace.workspace.id
-}
-
-resource "tfe_workspace" "repo" {
-  name                  = var.tfe_workspace_name
-  organization          = var.tfe_org_name
-  vcs_repo {
-    identifier          = var.identifier
-    branch              = "main"
-    ingress_submodules  = false
-    oauth_token_id      = tfe_oauth_client.github.oauth_token_id
-  }
 }
