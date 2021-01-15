@@ -15,7 +15,7 @@ resource "tfe_workspace" "workspace" {
   organization          = var.tfe_org_name
   auto_apply            = true
   operations            = true
-  queue_all_runs        = tfe_variable.queue_all_runs.value
+  queue_all_runs        = var.queue_all_runs
   file_triggers_enabled = true
   vcs_repo {
     identifier          = var.identifier
