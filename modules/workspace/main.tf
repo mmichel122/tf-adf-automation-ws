@@ -15,7 +15,7 @@ resource "tfe_workspace" "workspace" {
   organization          = var.tfe_org_name
   auto_apply            = true
   operations            = true
-  queue_all_runs        = var.queue_all_runs
+  queue_all_runs        = false
   file_triggers_enabled = true
   vcs_repo {
     identifier          = var.identifier
@@ -44,27 +44,27 @@ resource "tfe_variable" "AWS_SECRET_ACCESS_KEY" {
 resource "tfe_variable" "workspace_name" {
   key          = "workspace_name"
   value        = var.tfe_workspace_name
-  category     = "env"
+  category     = "terraform"
   workspace_id = tfe_workspace.workspace.id
 }
 
 resource "tfe_variable" "workspace_team" {
   key          = "workspace_team"
   value        = var.tfe_workspace_team
-  category     = "env"
+  category     = "terraform"
   workspace_id = tfe_workspace.workspace.id
 }
 
 resource "tfe_variable" "region" {
   key          = "region"
   value        = var.region
-  category     = "env"
+  category     = "terraform"
   workspace_id = tfe_workspace.workspace.id
 }
 
 resource "tfe_variable" "queue_all_runs" {
   key          = "queue_all_runs"
   value        = var.queue_all_runs
-  category     = "env"
+  category     = "terraform"
   workspace_id = tfe_workspace.workspace.id
 }
