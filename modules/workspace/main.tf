@@ -44,27 +44,27 @@ resource "tfe_variable" "AWS_SECRET_ACCESS_KEY" {
 resource "tfe_variable" "workspace_name" {
   key          = "workspace_name"
   value        = var.tfe_workspace_name
-  category     = "terraform"
+  category     = "env"
   workspace_id = tfe_workspace.workspace.id
 }
 
 resource "tfe_variable" "workspace_team" {
   key          = "workspace_team"
   value        = var.tfe_workspace_team
-  category     = "terraform"
+  category     = "env"
   workspace_id = tfe_workspace.workspace.id
 }
 
 resource "tfe_variable" "region" {
   key          = "region"
   value        = var.region
-  category     = "terraform"
+  category     = "env"
   workspace_id = tfe_workspace.workspace.id
 }
 
 resource "tfe_variable" "queue_all_runs" {
   key          = "queue_all_runs"
   value        = var.queue_all_runs
-  category     = "terraform"
+  category     = "env"
   workspace_id = tfe_workspace.workspace.id
 }
