@@ -26,5 +26,4 @@ variable "region" {
 }
 
 variable "queue_all_runs" {
-  default = true
 }

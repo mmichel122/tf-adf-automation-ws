@@ -9,6 +9,7 @@ module "mm-tf-demo-sky-1" {
   AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
   region                = "eu-west-1"
+  queue_all_runs        = true
 }
 
 module "mm-tf-demo-sky-2" {
@@ -22,4 +23,5 @@ module "mm-tf-demo-sky-2" {
   AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY_ID
   AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_ACCESS_KEY
   region                = "eu-west-1"
+  queue_all_runs        = true
 }
