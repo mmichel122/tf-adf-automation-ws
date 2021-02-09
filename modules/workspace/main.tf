@@ -10,7 +10,17 @@ resource "tfe_oauth_client" "github" {
   service_provider  = "github"
 }
 
+
 resource "tfe_workspace" "workspace" {
+  name                  = var.tfe_workspace_name
+  organization          = var.tfe_org_name
+  auto_apply            = true
+  operations            = true
+  queue_all_runs        = false
+  file_triggers_enabled = true
+}
+
+resource "tfe_workspace" "workspace1" {
   name                  = var.tfe_workspace_name
   organization          = var.tfe_org_name
   auto_apply            = true
@@ -22,6 +32,7 @@ resource "tfe_workspace" "workspace" {
     branch              = "main"
     ingress_submodules  = false
     oauth_token_id      = tfe_oauth_client.github.oauth_token_id
+    depends_on = tfe_variable.region
   }
 }
 
