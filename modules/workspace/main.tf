@@ -32,8 +32,12 @@ resource "tfe_workspace" "workspace1" {
     branch              = "main"
     ingress_submodules  = false
     oauth_token_id      = tfe_oauth_client.github.oauth_token_id
-    depends_on = tfe_variable.region
   }
+}
+
+resource "tfe_run_trigger" "source" {
+  workspace_id  = tfe_workspace.workspace1.id
+  sourceable_id = "tf-adf-automation-ws"
 }
 
 resource "tfe_variable" "AWS_ACCESS_KEY_ID" {
@@ -69,13 +73,6 @@ resource "tfe_variable" "workspace_team" {
 resource "tfe_variable" "region" {
   key          = "region"
   value        = var.region
-  category     = "terraform"
-  workspace_id = tfe_workspace.workspace.id
-}
-
-resource "tfe_variable" "queue_all_runs" {
-  key          = "queue_all_runs"
-  value        = var.queue_all_runs
   category     = "terraform"
   workspace_id = tfe_workspace.workspace.id
 }

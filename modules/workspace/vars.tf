@@ -24,6 +24,3 @@ variable "AWS_SECRET_ACCESS_KEY" {
 
 variable "region" {
 }
-
-variable "queue_all_runs" {
-}
