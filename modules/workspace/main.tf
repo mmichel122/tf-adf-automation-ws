@@ -10,17 +10,7 @@ resource "tfe_oauth_client" "github" {
   service_provider  = "github"
 }
 
-
 resource "tfe_workspace" "workspace" {
-  name                  = var.tfe_workspace_name
-  organization          = var.tfe_org_name
-  auto_apply            = true
-  operations            = true
-  queue_all_runs        = false
-  file_triggers_enabled = true
-}
-
-resource "tfe_workspace" "workspace1" {
   name                  = var.tfe_workspace_name
   organization          = var.tfe_org_name
   auto_apply            = true
@@ -35,12 +25,10 @@ resource "tfe_workspace" "workspace1" {
   }
 }
 
-/*
 resource "tfe_run_trigger" "source" {
-  workspace_id  = tfe_workspace.workspace1.id
+  workspace_id  = tfe_workspace.workspace.id
   sourceable_id = "ws-xAZUJz7A9ZgYjbvA"
 }
-*/
 
 resource "tfe_variable" "AWS_ACCESS_KEY_ID" {
   key          = "AWS_ACCESS_KEY_ID"
