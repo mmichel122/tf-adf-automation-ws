@@ -1,6 +1,6 @@
 module "mm-tf-demo-sky-1" {
   source                = "./modules/workspace"
-  tfe_workspace_name    = "mm-demo-sky-1"
+  tfe_workspace_name    = "mm-demo-sky-01"
   tfe_workspace_team    = "cec"
   tfe_token             = var.tfe_token
   tfe_org_name          = var.tfe_org_name
@@ -13,7 +13,7 @@ module "mm-tf-demo-sky-1" {
 
 module "mm-tf-demo-sky-2" {
   source                = "./modules/workspace"
-  tfe_workspace_name    = "mm-demo-sky-2"
+  tfe_workspace_name    = "mm-demo-sky-02"
   tfe_workspace_team    = "dta"
   tfe_token             = var.tfe_token
   tfe_org_name          = var.tfe_org_name
