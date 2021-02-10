@@ -25,9 +25,16 @@ resource "tfe_workspace" "workspace" {
   }
 }
 
+resource "time_sleep" "workspace_time" {
+  depends_on = [tfe_workspace.workspace]
+
+  create_duration = "30s"
+}
+
 resource "tfe_run_trigger" "source" {
   workspace_id  = tfe_workspace.workspace.id
   sourceable_id = "ws-xAZUJz7A9ZgYjbvA"
+  depends_on = [time_sleep.workspace_time]
 }
 
 resource "tfe_variable" "AWS_ACCESS_KEY_ID" {
