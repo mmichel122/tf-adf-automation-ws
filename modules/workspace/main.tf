@@ -37,7 +37,7 @@ resource "tfe_workspace" "workspace1" {
 
 resource "tfe_run_trigger" "source" {
   workspace_id  = tfe_workspace.workspace1.id
-  sourceable_id = "mmichel122/tf-adf-automation-ws"
+  sourceable_id = "ws-xAZUJz7A9ZgYjbvA"
 }
 
 resource "tfe_variable" "AWS_ACCESS_KEY_ID" {
